@@ -12,6 +12,7 @@ jobs:
         shell: bash 
         run: |
           # Train and evaluate the model
+          python prepareV2.py
           python train.py
           python evaluate.py
 
