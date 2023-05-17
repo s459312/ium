@@ -12,7 +12,7 @@ jobs:
           # Train and evaluate the model
           python3 prepareV2.py
           python3 train.py
-          python3 evaluate.py
+          python3 evaluation.py
           
 
           cml-send-comment metrics_file.txt
