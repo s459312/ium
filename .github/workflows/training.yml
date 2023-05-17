@@ -16,12 +16,8 @@ jobs:
         shell: bash 
         run: |
           # Train and evaluate the model
-          docker run \
-            --rm \
-            -v ${PWD}:/app \
-            -v ${PWD}/data:/app/data \
-            sondei/ium:latest \
-            python /app/prepareV2.py && \
-            python /app/train.py && \
-            python /app/evaluate.py && \
-            cml-send-comment /app/metrics_file.txt
+          python prepareV2.py
+          python train.py
+          python evaluate.py
+
+          cml-send-comment metrics_file.txt
