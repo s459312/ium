@@ -16,8 +16,8 @@ jobs:
         shell: bash 
         run: |
           # Train and evaluate the model
-          python prepareV2.py
-          python train.py
-          python evaluate.py
+          python3 prepareV2.py
+          python3 train.py
+          python3 evaluate.py
 
           cml-send-comment metrics_file.txt
