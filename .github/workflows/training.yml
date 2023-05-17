@@ -6,16 +6,6 @@ jobs:
     container: sondei/ium:latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Install wget'
-        run: |
-          apt-get update
-          apt-get install -y wget
-      - name: 'Download training files'
-        run: |
-          wget https://git.wmi.amu.edu.pl/s459312/ium_459312/src/branch/master/titles.csv
-          wget https://git.wmi.amu.edu.pl/s459312/ium_459312/src/branch/master/prepareV2.py
-          wget https://git.wmi.amu.edu.pl/s459312/ium_459312/src/branch/master/train.py
-          wget https://git.wmi.amu.edu.pl/s459312/ium_459312/src/branch/master/evaluation.py
       - name: 'Train and Evaluate model'
         shell: bash 
         run: |
@@ -23,5 +13,6 @@ jobs:
           python3 prepareV2.py
           python3 train.py
           python3 evaluate.py
+          
 
           cml-send-comment metrics_file.txt
